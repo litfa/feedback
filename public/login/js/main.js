@@ -3,9 +3,10 @@ window.onload = () => {
         el: "#app",
         data: {
             loginType: "useUserNameAndPassWord",
-            userName: "",
+            email: "",
             passWord: "",
-            code: ""
+            code: "",
+            imgCodeUrl: "http://127.0.0.1:3000/api/user/code"
         },
         methods: {
             useUserNameAndPassWord: function () {
@@ -22,11 +23,15 @@ window.onload = () => {
             },
             login: function () {
                 let that = this
-                axios.post(`${config.api.url}/login`, {
+                axios.post(`${config.api.url}/api/login`, {
                     type: that.loginType,
-                    userName: that.userName,
-                    password: that.password,
+                    email: that.email,
+                    passWord: that.passWord,
                     code: that.code
+                }).then(res => {
+                    console.log(res)
+                }).catch(err => {
+                    console.log(err);
                 })
             }
         }
