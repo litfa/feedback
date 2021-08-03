@@ -5,7 +5,6 @@
 body {
   width: 100%;
   background-color: #ececec;
-  overflow-x: hidden;
 }
 a {
   color: #000;
@@ -47,6 +46,8 @@ a {
   margin: 15px;
 }
 .left .user {
+  position: sticky;
+  top: 10px;
   padding: 20px;
   background-color: #fff;
   display: flex;
