@@ -6,9 +6,12 @@ window.onload = () => {
             email: "",
             passWord: "",
             code: "",
-            imgCodeUrl: "http://127.0.0.1:3000/api/user/code"
+            imgCodeUrl: `${config.api.url}/api/user/code`
         },
         methods: {
+            nextImgCode: function () {
+                this.imgCodeUrl = `${config.api.url}/api/user/code?id=${Math.random()}`
+            },
             useUserNameAndPassWord: function () {
                 this.loginType = "useUserNameAndPassWord"
                 this.userName = ""

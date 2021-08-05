@@ -4,6 +4,12 @@ const session = require('express-session')
 
 const app = express()
 
+global.config = {}
+config.email = {}
+require("./config")
+
+require("./modules/connect")
+
 // post解析
 var bodyParser = require('body-parser')//用于req.body获取值的
 app.use(bodyParser.json())
@@ -26,10 +32,12 @@ app.use("/register", express.static('./public/register'))
 // 找回密码
 app.use("/resetPassword", express.static('./public/resetPassword'))
 
-// 登录api
-app.use("/api/login", require("./router/login"))
 // 图片验证码
 app.use("/api/user", require("./router/imgCode"))
+// 登录api
+app.use("/api/login", require("./router/login"))
+// 注册api
+app.use("/api/register", require("./router/register"))
 
 // 需要登录的操作
 app.use("/api/user", (req, res, next) => {

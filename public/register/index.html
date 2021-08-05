@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="/config/config.js"></script>
+    <script src="/common/js/vue.js"></script>
+    <script src="/common/js/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="title">
+            <a href="/">
+                <img src="/common/img/logo.png" alt="">
+                <h1>注册</h1>
+            </a>
+        </div>
+    </div>
+    <div id="app">
+        <div class="login-box">
+            <div class="userNameAndPassWord">
+                <input type="text" placeholder="邮箱" v-model="email" :style="{border: emailErrColor}">
+                <input type="text" placeholder="密码" v-model="passWord" :style="{border: passwordErrColor}">
+                <span>
+                    <input type="text" placeholder="验证码" v-model="code">
+                    <img :src="imgCodeUrl" @click="nextImgCode" alt="">
+                    <!-- <button :style="{background: imgCodeUrl}">123</button> -->
+                </span>
+                <span>
+                    <input type="text" placeholder="邮箱验证码" v-model="emailCode" :style="{border: codeErrColor}">
+                    <button @click="getEmailCode" :disabled="emailCodeTexeDisabled">{{ emailCodeTexe }}</button>
+                </span>
+                <button @click="login">提交</button>
+            </div>
+            <p>
+                <a href="">已有账号，直接登录></a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
