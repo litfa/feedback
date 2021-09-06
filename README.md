@@ -1,2 +1,2 @@
 # 咕咕咕！
-[xingWiki](/litfa/wiki)
+[xingWiki](https://github.com/litfa/wiki)
